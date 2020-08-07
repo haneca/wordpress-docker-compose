@@ -1,0 +1,15 @@
+web:
+     image: wordpress
+     links:
+      - mysql
+     environment:
+      - WORDPRESS_DB_PASSWORD=password
+     ports:
+      - "8081:80"
+     volumes:
+      - ~/Projects/wordpress/themes/sample:/var/www/html/wp-content/themes/sample
+mysql:
+     image: mysql:5.7
+     environment:
+      - MYSQL_ROOT_PASSWORD=possword
+      - MYSQL_DATABASE=wordpress
